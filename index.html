@@ -64,18 +64,57 @@
     <!-- Sección Solicitud de Cotización -->
     <section id="cotizacion">
         <h2>Solicitud de Cotización</h2>
-        <form action="#" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required />
+        <form action="procesar_cotizacion.php" method="post" id="cotizacion-form">
+        <label>Nombres y Apellidos:<br />
+            <input type="text" name="nombres" required />
+        </label><br /><br />
 
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required />
+        <label>Ciudad:<br />
+            <select name="ciudad" required>
+                <option value="">--Seleccione--</option>
+                <option value="Bogotá">Bogotá</option>
+                <option value="Medellín">Medellín</option>
+                <option value="Cali">Cali</option>
+                <option value="Barranquilla">Barranquilla</option>
+                <option value="Cartagena">Cartagena</option>
+            </select>
+        </label><br /><br />
 
-            <label for="producto">Producto de Interés:</label>
-            <input type="text" id="producto" name="producto" required />
+        <label>Dirección:<br />
+            <input type="text" name="direccion" required />
+        </label><br /><br />
 
-            <button type="submit">Solicitar Cotización</button>
-        </form>
+        <label>Celular:<br />
+            <input type="text" name="celular" required pattern="\d{7,15}" title="Ingrese solo números, entre 7 y 15 dígitos" />
+        </label><br /><br />
+
+        <fieldset>
+            <legend>Productos</legend>
+            <label>
+                <input type="checkbox" name="productos[]" value="Producto A" />
+                Producto A (precio: $10,000)
+            </label>
+            <input type="number" name="cantidades[Producto A]" min="1" placeholder="Cantidad" />
+            <br />
+
+            <label>
+                <input type="checkbox" name="productos[]" value="Producto B" />
+                Producto B (precio: $20,000)
+            </label>
+            <input type="number" name="cantidades[Producto B]" min="1" placeholder="Cantidad" />
+            <br />
+
+            <label>
+                <input type="checkbox" name="productos[]" value="Producto C" />
+                Producto C (precio: $15,000)
+            </label>
+            <input type="number" name="cantidades[Producto C]" min="1" placeholder="Cantidad" />
+            <br />
+        </fieldset><br />
+
+        <button type="submit">Enviar datos</button>
+        <button type="button" onclick="window.location.href='index.html'">Cancelar</button>
+    </form>
     </section>
 
     <!-- Sección Diseña tu Cuento -->
